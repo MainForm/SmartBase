@@ -114,7 +114,7 @@ namespace MillSuppoter
             int Msg = sp.ReadChar();
             
             
-            textBox1.Text  += (char)Msg;
+            //textBox1.Text  += (char)Msg;
 
             if (Msg == '\n')
             {
@@ -127,7 +127,6 @@ namespace MillSuppoter
                     if (result[1] == "TLT") //화장실 관련
                     {
                         FrmToilet.ExcuteCommand(Cmd.Substring(Cmd.IndexOf("TLT") + 4));
-                        this.LBToilet.Text = FrmToilet.CntUsingRoom().ToString() + "/5";
                     }
                 }
                 Cmd = "";
@@ -166,6 +165,11 @@ namespace MillSuppoter
         {
             Com.Write(this.textBox2.Text);
             textBox2.Text = "";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

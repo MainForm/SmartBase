@@ -15,62 +15,23 @@ namespace MillSuppoter
     public partial class Toilet : Form
     {
         private TltRoom[] TRm;
-        private Timer[] Tmr;
-        private DateTime[] dt;
 
         public Toilet()
-        {
-            TRm = new TltRoom[5];
-            Tmr = new Timer[5];
-            dt = new DateTime[5];
-         
-            
-            for (int i = 0; i < 5; i++)
-            {
-                TRm[i] = new TltRoom(this);
-                Tmr[i] = new Timer();
-                dt[i] = new DateTime();
-                dt[i] = DateTime.Parse("00:00:00");
-                Tmr[i].Interval = 1000;
-            }
-
-            Tmr[0].Tick += Toilet_Tick1;
-            Tmr[1].Tick += Toilet_Tick2;
-            Tmr[2].Tick += Toilet_Tick3;
-            Tmr[3].Tick += Toilet_Tick4;
-            Tmr[4].Tick += Toilet_Tick5;
+        { 
 
             InitializeComponent();
         }
 
-        private void Toilet_Tick1(object sender, EventArgs e)
-        {
-            maskedTextBox1.Text = dt[0].ToString("mm:ss");
-            dt[0].AddSeconds(1);
-            
-        }
-        private void Toilet_Tick2(object sender, EventArgs e)
-        {
-
-        }
-        private void Toilet_Tick3(object sender, EventArgs e)
-        {
-
-        }
-        private void Toilet_Tick4(object sender, EventArgs e)
-        {
-
-        }
-        private void Toilet_Tick5(object sender, EventArgs e)
-        {
-
-        }
-
         private void Toilet_Load(object sender, EventArgs e)
         {
-            CheckForIllegalCrossThreadCalls = false;
-
-      
+            for (int i = 0; i < 5; i++) {
+                for(int i1 = 0;i1 < this.Controls.Count; i1++)
+                {
+                    if (this.Controls[i].Name == "maskedTextBox" + i) ;
+  //                      TRm[i] = new TltRoom(this.Controls[i]);
+                }
+                
+            }
 
         }
 
@@ -101,8 +62,7 @@ namespace MillSuppoter
                 int.TryParse(Params[1], out RoomNum);
 
                 TRm[RoomNum].IsDoorOpen = true;
-                Tmr[RoomNum].Start();
-                maskedTextBox1.Text = "01:10";
+                TRm[RoomNum].DoorOpened();
             }
             else if (Params[0] == "CLOSE")
             {
@@ -128,13 +88,6 @@ namespace MillSuppoter
             return cnt;
         }
 
-
-
-        public void SetTime(DateTime dt)
-        {
-            this.Text = dt.ToString("mm:ss");
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -146,25 +99,45 @@ namespace MillSuppoter
         private bool DoorStatus;
         private bool WaterStatus;
         private Pen pBlue, pRed;
+        private Timer tmr;
         private DateTime dt;
+        private Control mk;
+
         public int Height { get { return 100; } }
         public int Width { get { return 101; } }
-        Toilet t;
 
         public bool IsDoorOpen { get { return DoorStatus; } set { DoorStatus = value; } }
         public bool IsWaterOverflow { get { return WaterStatus; } set { WaterStatus = value; } }
 
-        public TltRoom(Toilet T)
+        public TltRoom(Control T)
         {
-            t = T;
+            mk = T;
+
+   //         mk.Text = "11:11";
+       
             IsDoorOpen = false;
             IsWaterOverflow = false;
 
             pBlue = new Pen(Color.Blue);
             pRed = new Pen(Color.Red);
 
+            tmr = new Timer();
+            tmr.Interval = 100;
+            tmr.Tick += Tmr_Tick;
+
             dt = new DateTime();
-            dt = DateTime.Parse("00:10:10");
+        }
+
+        private void Tmr_Tick(object sender, EventArgs e)
+        {
+          
+            dt.AddSeconds(1);
+        }
+
+        public void DoorOpened()
+        {
+            
+            tmr.Start();
         }
 
         public void DrawRoom(Graphics g, int x, int y)

@@ -15,62 +15,19 @@ namespace MillSuppoter
     public partial class Toilet : Form
     {
         private TltRoom[] TRm;
-        private Timer[] Tmr;
-        private DateTime[] dt;
 
         public Toilet()
         {
             TRm = new TltRoom[5];
-            Tmr = new Timer[5];
-            dt = new DateTime[5];
-         
-            
-            for (int i = 0; i < 5; i++)
-            {
-                TRm[i] = new TltRoom(this);
-                Tmr[i] = new Timer();
-                dt[i] = new DateTime();
-                dt[i] = DateTime.Parse("00:00:00");
-                Tmr[i].Interval = 1000;
-            }
 
-            Tmr[0].Tick += Toilet_Tick1;
-            Tmr[1].Tick += Toilet_Tick2;
-            Tmr[2].Tick += Toilet_Tick3;
-            Tmr[3].Tick += Toilet_Tick4;
-            Tmr[4].Tick += Toilet_Tick5;
+            for (int i = 0; i < 5; i++)
+                TRm[i] = new TltRoom();
 
             InitializeComponent();
         }
 
-        private void Toilet_Tick1(object sender, EventArgs e)
-        {
-            maskedTextBox1.Text = dt[0].ToString("mm:ss");
-            dt[0].AddSeconds(1);
-            
-        }
-        private void Toilet_Tick2(object sender, EventArgs e)
-        {
-
-        }
-        private void Toilet_Tick3(object sender, EventArgs e)
-        {
-
-        }
-        private void Toilet_Tick4(object sender, EventArgs e)
-        {
-
-        }
-        private void Toilet_Tick5(object sender, EventArgs e)
-        {
-
-        }
-
         private void Toilet_Load(object sender, EventArgs e)
         {
-            CheckForIllegalCrossThreadCalls = false;
-
-      
 
         }
 
@@ -85,7 +42,7 @@ namespace MillSuppoter
             for (int i = 0; i < 5; i++)
             {
 
-                TRm[i].DrawRoom(e.Graphics, 322, 25 + (i * (TRm[i].Height + 30)));
+                TRm[i].DrawRoom(e.Graphics, 322, 24);
             }
 
         }
@@ -101,8 +58,6 @@ namespace MillSuppoter
                 int.TryParse(Params[1], out RoomNum);
 
                 TRm[RoomNum].IsDoorOpen = true;
-                Tmr[RoomNum].Start();
-                maskedTextBox1.Text = "01:10";
             }
             else if (Params[0] == "CLOSE")
             {
@@ -128,17 +83,6 @@ namespace MillSuppoter
             return cnt;
         }
 
-
-
-        public void SetTime(DateTime dt)
-        {
-            this.Text = dt.ToString("mm:ss");
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
     public class TltRoom
@@ -146,25 +90,21 @@ namespace MillSuppoter
         private bool DoorStatus;
         private bool WaterStatus;
         private Pen pBlue, pRed;
-        private DateTime dt;
-        public int Height { get { return 100; } }
-        public int Width { get { return 101; } }
-        Toilet t;
+        
+
+        public int Height { get { return 120; } }
+        public int Width { get { return 100; } }
 
         public bool IsDoorOpen { get { return DoorStatus; } set { DoorStatus = value; } }
         public bool IsWaterOverflow { get { return WaterStatus; } set { WaterStatus = value; } }
 
-        public TltRoom(Toilet T)
+        public TltRoom()
         {
-            t = T;
             IsDoorOpen = false;
             IsWaterOverflow = false;
 
             pBlue = new Pen(Color.Blue);
             pRed = new Pen(Color.Red);
-
-            dt = new DateTime();
-            dt = DateTime.Parse("00:10:10");
         }
 
         public void DrawRoom(Graphics g, int x, int y)
@@ -176,7 +116,7 @@ namespace MillSuppoter
             else
                 tPen = pRed;
 
-            g.DrawRectangle(tPen, new Rectangle(x - 1, y - 1, Width + 1, Height + 1));
+            g.DrawRectangle(tPen, new Rectangle(x, y, Width, Height));
         }
     }
 }
