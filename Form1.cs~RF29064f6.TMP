@@ -153,6 +153,10 @@ namespace MillSuppoter
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
+    
+                Com.WriteLine("10");
+                Com.WriteLine("20");
                 this.LBToilet.Text = FrmToilet.CntUsingRoom().ToString() + "/5";
             
         }
@@ -160,12 +164,6 @@ namespace MillSuppoter
         private void button2_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Com.Write(this.textBox2.Text);
-            textBox2.Text = "";
         }
     }
 }
