@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LBToilet = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,25 +63,26 @@
             this.아두이노연결ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(635, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(657, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(64, 89);
+            this.button2.Location = new System.Drawing.Point(64, 235);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 92);
             this.button2.TabIndex = 2;
             this.button2.Text = "1생활관";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.LBToilet);
-            this.panel1.Location = new System.Drawing.Point(335, 231);
+            this.panel1.Location = new System.Drawing.Point(380, 242);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(228, 104);
             this.panel1.TabIndex = 3;
@@ -110,13 +112,23 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(64, 47);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(530, 156);
+            this.textBox1.TabIndex = 4;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 387);
+            this.ClientSize = new System.Drawing.Size(657, 392);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.menuStrip1);
@@ -146,6 +158,7 @@
         private System.Windows.Forms.Label LBToilet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

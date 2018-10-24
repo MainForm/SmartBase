@@ -18,6 +18,7 @@ namespace MillSuppoter
 
         public MainForm()
         {
+            FrmToilet = new Toilet();
             InitializeComponent();
         }
 
@@ -46,8 +47,6 @@ namespace MillSuppoter
 
                 if (ConnectCom(FrmCntCom.ComName,FrmCntCom.Bauad) == -1)
                     MessageBox.Show("아두이노 연결에 실패하였습니다.");
-                else
-                    Com.Open();
 
                 if (Com.IsOpen == false)
                 {
@@ -82,6 +81,7 @@ namespace MillSuppoter
                 return -1;
             }
 
+            Com.Open();
             return 0;
         }
 
@@ -92,10 +92,30 @@ namespace MillSuppoter
 
         private string Cmd;
 
+        
+        private delegate void DelegateFunction(char sData);
+
+        private void DelegateFunc(char sData)
+        {
+            if (textBox1.InvokeRequired)
+            {
+                DelegateFunction call = new DelegateFunction(DelegateFunc);
+                this.Invoke(call, sData);
+            }
+            else
+            {
+                textBox1.Text += (char)sData;
+            }
+        }
+
         private void Com_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
             int Msg = sp.ReadChar();
+            
+            
+            textBox1.Text  += (char)Msg;
+
             if (Msg == '\n')
             {
                 //명령어 실행
@@ -133,9 +153,17 @@ namespace MillSuppoter
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Com.WriteLine("10");
-            Com.WriteLine("20 " + FrmToilet.CntUsingRoom().ToString() + "5");
-            this.LBToilet.Text = FrmToilet.CntUsingRoom().ToString() + "/5";
+            
+    
+                Com.WriteLine("10");
+                Com.WriteLine("20");
+                this.LBToilet.Text = FrmToilet.CntUsingRoom().ToString() + "/5";
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
