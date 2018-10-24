@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.아두이노연결ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.아두이노연결AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -35,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.LBToilet = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +85,7 @@
             this.panel1.Size = new System.Drawing.Size(228, 104);
             this.panel1.TabIndex = 3;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -104,6 +107,10 @@
             this.LBToilet.TabIndex = 0;
             this.LBToilet.Text = "0/5";
             this.LBToilet.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
@@ -138,6 +145,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LBToilet;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

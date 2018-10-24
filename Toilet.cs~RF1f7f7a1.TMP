@@ -14,6 +14,7 @@ namespace MillSuppoter
 
     public partial class Toilet : Form
     {
+        private Pen pBlue, pRed;
         private TltRoom[] TRm;
 
         public Toilet()
@@ -28,6 +29,8 @@ namespace MillSuppoter
 
         private void Toilet_Load(object sender, EventArgs e)
         {
+            pBlue = new Pen(Color.Blue);
+            pRed = new Pen(Color.Red);
 
         }
 
@@ -39,10 +42,16 @@ namespace MillSuppoter
         private void Toilet_Paint(object sender, PaintEventArgs e)
         {
 
+            Pen pTemp;
             for (int i = 0; i < 5; i++)
             {
+                if (TRm[i].IsDoorOpen == false)
+                    pTemp = pBlue;
+                else
+                    pTemp = pRed;
 
-                TRm[i].DrawRoom(e.Graphics, 10 + (i * (TRm[i].Width + 10)),40);
+                TRm[i].DrawRoom(e.Graphics, 10,10);
+                //e.Graphics.DrawRectangle(pTemp, new Rectangle(10 + (i * (TRm[i].Width + 10)), 40, TRm[i].Width, TRm[i].Height));
             }
 
         }
@@ -66,7 +75,6 @@ namespace MillSuppoter
 
                 TRm[RoomNum].IsDoorOpen = false;
             }
-            
 
             Invalidate();
         }

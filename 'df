@@ -1,0 +1,342 @@
+warning: CRLF will be replaced by LF in Form1.Designer.cs.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in Form1.cs.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in Form1.resx.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in MillSuppoter.csproj.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in Toilet.Designer.cs.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in Toilet.cs.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in Toilet.resx.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in obj/Debug/MillSuppoter.csproj.CoreCompileInputs.cache.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in obj/Debug/MillSuppoter.csproj.FileListAbsolute.txt.
+The file will have its original line endings in your working directory
+[1mdiff --git a/Form1.Designer.cs b/Form1.Designer.cs[m
+[1mindex 2798660..3a83c3d 100644[m
+[1m--- a/Form1.Designer.cs[m
+[1m+++ b/Form1.Designer.cs[m
+[36m@@ -28,6 +28,7 @@[m
+         /// </summary>[m
+         private void InitializeComponent()[m
+         {[m
+[32m+[m[32m            this.components = new System.ComponentModel.Container();[m
+             this.아두이노연결ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+             this.아두이노연결AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+             this.menuStrip1 = new System.Windows.Forms.MenuStrip();[m
+[36m@@ -35,6 +36,7 @@[m
+             this.panel1 = new System.Windows.Forms.Panel();[m
+             this.label2 = new System.Windows.Forms.Label();[m
+             this.LBToilet = new System.Windows.Forms.Label();[m
+[32m+[m[32m            this.timer1 = new System.Windows.Forms.Timer(this.components);[m
+             this.menuStrip1.SuspendLayout();[m
+             this.panel1.SuspendLayout();[m
+             this.SuspendLayout();[m
+[36m@@ -83,6 +85,7 @@[m
+             this.panel1.Size = new System.Drawing.Size(228, 104);[m
+             this.panel1.TabIndex = 3;[m
+             this.panel1.Click += new System.EventHandler(this.panel1_Click);[m
+[32m+[m[32m            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);[m
+             // [m
+             // label2[m
+             // [m
+[36m@@ -105,6 +108,10 @@[m
+             this.LBToilet.Text = "0/5";[m
+             this.LBToilet.Click += new System.EventHandler(this.panel1_Click);[m
+             // [m
+[32m+[m[32m            // timer1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);[m
+[32m+[m[32m            //[m[41m [m
+             // MainForm[m
+             // [m
+             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);[m
+[36m@@ -138,6 +145,7 @@[m
+         private System.Windows.Forms.Panel panel1;[m
+         private System.Windows.Forms.Label LBToilet;[m
+         private System.Windows.Forms.Label label2;[m
+[32m+[m[32m        private System.Windows.Forms.Timer timer1;[m
+     }[m
+ }[m
+ [m
+[1mdiff --git a/Form1.cs b/Form1.cs[m
+[1mindex aceb21d..89003ad 100644[m
+[1m--- a/Form1.cs[m
+[1m+++ b/Form1.cs[m
+[36m@@ -23,10 +23,10 @@[m [mnamespace MillSuppoter[m
+ [m
+         private void Form1_Activated(object sender, EventArgs e)[m
+         {[m
+[31m-            FrmToilet = new Toilet();[m
+             this.Com = new SerialPort();[m
+ [m
+             this.Com.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Com_DataReceived);[m
+[32m+[m
+         }[m
+ [m
+         private void Form1_FormClosed(object sender, FormClosedEventArgs e)[m
+[36m@@ -57,6 +57,7 @@[m [mnamespace MillSuppoter[m
+                 {[m
+                     this.Text += " Connected : " + Com.PortName;[m
+                     MessageBox.Show("연결!!");[m
+[32m+[m[32m                    timer1.Start();[m
+                 }[m
+             }[m
+             else if(FrmCntCom.CdnToCnt == -1){[m
+[36m@@ -119,10 +120,21 @@[m [mnamespace MillSuppoter[m
+ [m
+         private void panel1_Click(object sender, EventArgs e)[m
+         {[m
+[31m-           [m
+[31m-[m
+[32m+[m[32m            FrmToilet = new Toilet();[m
+             FrmToilet.Show();[m
+ [m
+         }[m
+[32m+[m
+[32m+[m[32m        private void panel1_Paint(object sender, PaintEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void timer1_Tick(object sender, EventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Com.WriteLine("10");[m
+[32m+[m[32m            Com.WriteLine("20 " + FrmToilet.CntUsingRoom().ToString() + "5");[m
+[32m+[m[32m            this.LBToilet.Text = FrmToilet.CntUsingRoom().ToString() + "/5";[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+[1mdiff --git a/Form1.resx b/Form1.resx[m
+[1mindex d5494e3..7d5dcb2 100644[m
+[1m--- a/Form1.resx[m
+[1m+++ b/Form1.resx[m
+[36m@@ -120,4 +120,7 @@[m
+   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">[m
+     <value>17, 17</value>[m
+   </metadata>[m
+[32m+[m[32m  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">[m
+[32m+[m[32m    <value>133, 17</value>[m
+[32m+[m[32m  </metadata>[m
+ </root>[m
+\ No newline at end of file[m
+[1mdiff --git a/MillSuppoter.csproj b/MillSuppoter.csproj[m
+[1mindex 4cf7bf2..45d82f2 100644[m
+[1m--- a/MillSuppoter.csproj[m
+[1m+++ b/MillSuppoter.csproj[m
+[36m@@ -59,6 +59,12 @@[m
+     <Compile Include="Form1.Designer.cs">[m
+       <DependentUpon>Form1.cs</DependentUpon>[m
+     </Compile>[m
+[32m+[m[32m    <Compile Include="LivingRoom.cs">[m
+[32m+[m[32m      <SubType>Form</SubType>[m
+[32m+[m[32m    </Compile>[m
+[32m+[m[32m    <Compile Include="LivingRoom.Designer.cs">[m
+[32m+[m[32m      <DependentUpon>LivingRoom.cs</DependentUpon>[m
+[32m+[m[32m    </Compile>[m
+     <Compile Include="Program.cs" />[m
+     <Compile Include="Properties\AssemblyInfo.cs" />[m
+     <Compile Include="Toilet.cs">[m
+[36m@@ -73,6 +79,9 @@[m
+     <EmbeddedResource Include="Form1.resx">[m
+       <DependentUpon>Form1.cs</DependentUpon>[m
+     </EmbeddedResource>[m
+[32m+[m[32m    <EmbeddedResource Include="LivingRoom.resx">[m
+[32m+[m[32m      <DependentUpon>LivingRoom.cs</DependentUpon>[m
+[32m+[m[32m    </EmbeddedResource>[m
+     <EmbeddedResource Include="Properties\Resources.resx">[m
+       <Generator>ResXFileCodeGenerator</Generator>[m
+       <LastGenOutput>Resources.Designer.cs</LastGenOutput>[m
+[1mdiff --git a/Toilet.Designer.cs b/Toilet.Designer.cs[m
+[1mindex 48c836c..c89c079 100644[m
+[1m--- a/Toilet.Designer.cs[m
+[1m+++ b/Toilet.Designer.cs[m
+[36m@@ -28,8 +28,6 @@[m
+         /// </summary>[m
+         private void InitializeComponent()[m
+         {[m
+[31m-            this.components = new System.ComponentModel.Container();[m
+[31m-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);[m
+             this.label1 = new System.Windows.Forms.Label();[m
+             this.label2 = new System.Windows.Forms.Label();[m
+             this.label3 = new System.Windows.Forms.Label();[m
+[36m@@ -99,11 +97,10 @@[m
+             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Toilet_Paint);[m
+             this.ResumeLayout(false);[m
+             this.PerformLayout();[m
+[32m+[m
+         }[m
+ [m
+         #endregion[m
+[31m-[m
+[31m-        private System.IO.Ports.SerialPort serialPort1;[m
+         private System.Windows.Forms.Label label1;[m
+         private System.Windows.Forms.Label label2;[m
+         private System.Windows.Forms.Label label3;[m
+[1mdiff --git a/Toilet.cs b/Toilet.cs[m
+[1mindex 4b7a969..86100d2 100644[m
+[1m--- a/Toilet.cs[m
+[1m+++ b/Toilet.cs[m
+[36m@@ -14,7 +14,6 @@[m [mnamespace MillSuppoter[m
+ [m
+     public partial class Toilet : Form[m
+     {[m
+[31m-        private Pen pBlue, pRed;[m
+         private TltRoom[] TRm;[m
+ [m
+         public Toilet()[m
+[36m@@ -29,8 +28,6 @@[m [mnamespace MillSuppoter[m
+ [m
+         private void Toilet_Load(object sender, EventArgs e)[m
+         {[m
+[31m-            pBlue = new Pen(Color.Blue);[m
+[31m-            pRed = new Pen(Color.Red);[m
+ [m
+         }[m
+ [m
+[36m@@ -41,18 +38,11 @@[m [mnamespace MillSuppoter[m
+ [m
+         private void Toilet_Paint(object sender, PaintEventArgs e)[m
+         {[m
+[31m-            const int RectWitdh = 100;[m
+[31m-            const int RectHeight = 120;[m
+ [m
+[31m-            Pen pTemp;[m
+             for (int i = 0; i < 5; i++)[m
+             {[m
+[31m-                if (TRm[i].IsDoorOpen == false)[m
+[31m-                    pTemp = pBlue;[m
+[31m-                else[m
+[31m-                    pTemp = pRed;[m
+ [m
+[31m-                e.Graphics.DrawRectangle(pTemp, new Rectangle(10 + (i * (RectWitdh + 10)), 40, RectWitdh, RectHeight));[m
+[32m+[m[32m                TRm[i].DrawRoom(e.Graphics, 10 + (i * (TRm[i].Width + 10)),40);[m
+             }[m
+ [m
+         }[m
+[36m@@ -61,7 +51,7 @@[m [mnamespace MillSuppoter[m
+         {[m
+             string[] Params = cmd.Split(new char[] { ' ' });[m
+ [m
+[31m-            [m
+[32m+[m
+             if (Params[0] == "OPEN")[m
+             {[m
+                 int RoomNum = 0;[m
+[36m@@ -69,13 +59,14 @@[m [mnamespace MillSuppoter[m
+ [m
+                 TRm[RoomNum].IsDoorOpen = true;[m
+             }[m
+[31m-            else if(Params[0] == "CLOSE")[m
+[32m+[m[32m            else if (Params[0] == "CLOSE")[m
+             {[m
+                 int RoomNum = 0;[m
+                 int.TryParse(Params[1], out RoomNum);[m
+ [m
+                 TRm[RoomNum].IsDoorOpen = false;[m
+             }[m
+[32m+[m[41m            [m
+ [m
+             Invalidate();[m
+         }[m
+[36m@@ -84,20 +75,25 @@[m [mnamespace MillSuppoter[m
+         {[m
+             int cnt = 0;[m
+ [m
+[31m-            foreach(TltRoom t in TRm)[m
+[32m+[m[32m            foreach (TltRoom t in TRm)[m
+             {[m
+                 if (t.IsDoorOpen == false)[m
+                     cnt++;[m
+             }[m
+             return cnt;[m
+         }[m
+[31m-           [m
+[32m+[m
+     }[m
+ [m
+     public class TltRoom[m
+     {[m
+         private bool DoorStatus;[m
+         private bool WaterStatus;[m
+[32m+[m[32m        private Pen pBlue, pRed;[m
+[32m+[m[41m        [m
+[32m+[m
+[32m+[m[32m        public int Height { get { return 120; } }[m
+[32m+[m[32m        public int Width { get { return 100; } }[m
+ [m
+         public bool IsDoorOpen { get { return DoorStatus; } set { DoorStatus = value; } }[m
+         public bool IsWaterOverflow { get { return WaterStatus; } set { WaterStatus = value; } }[m
+[36m@@ -106,8 +102,21 @@[m [mnamespace MillSuppoter[m
+         {[m
+             IsDoorOpen = false;[m
+             IsWaterOverflow = false;[m
+[32m+[m
+[32m+[m[32m            pBlue = new Pen(Color.Blue);[m
+[32m+[m[32m            pRed = new Pen(Color.Red);[m
+         }[m
+[31m-        [m
+ [m
+[32m+[m[32m        public void DrawRoom(Graphics g, int x, int y)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Pen tPen;[m
+[32m+[m
+[32m+[m[32m            if (this.IsDoorOpen == false)[m
+[32m+[m[32m                tPen = pBlue;[m
+[32m+[m[32m            else[m
+[32m+[m[32m                tPen = pRed;[m
+[32m+[m
+[32m+[m[32m            g.DrawRectangle(tPen, new Rectangle(x, y, Width, Height));[m
+[32m+[m[32m        }[m
+     }[m
+[31m-}[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/Toilet.resx b/Toilet.resx[m
+[1mindex 6f08af7..1af7de1 100644[m
+[1m--- a/Toilet.resx[m
+[1m+++ b/Toilet.resx[m
+[36m@@ -117,7 +117,4 @@[m
+   <resheader name="writer">[m
+     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>[m
+   </resheader>[m
+[31m-  <metadata name="serialPort1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">[m
+[31m-    <value>26, 19</value>[m
+[31m-  </metadata>[m
+ </root>[m
+\ No newline at end of file[m
+[1mdiff --git a/bin/Debug/MillSuppoter.exe b/bin/Debug/MillSuppoter.exe[m
+[1mindex 9f73ca8..34e3c16 100644[m
+Binary files a/bin/Debug/MillSuppoter.exe and b/bin/Debug/MillSuppoter.exe differ
+[1mdiff --git a/bin/Debug/MillSuppoter.pdb b/bin/Debug/MillSuppoter.pdb[m
+[1mindex b2a6d3c..82ea723 100644[m
+Binary files a/bin/Debug/MillSuppoter.pdb and b/bin/Debug/MillSuppoter.pdb differ
+[1mdiff --git a/obj/Debug/MillSuppoter.csproj.CoreCompileInputs.cache b/obj/Debug/MillSuppoter.csproj.CoreCompileInputs.cache[m
+[1mindex cde4c77..5743ef0 100644[m
+[1m--- a/obj/Debug/MillSuppoter.csproj.CoreCompileInputs.cache[m
+[1m+++ b/obj/Debug/MillSuppoter.csproj.CoreCompileInputs.cache[m
+[36m@@ -1 +1 @@[m
+[31m-958d3cb07e9f321fa1ec9e7ba13545bae2adb8c1[m
+[32m+[m[32m2379cab762891357aa957ee18a3cff1d3e78c42b[m
+[1mdiff --git a/obj/Debug/MillSuppoter.csproj.FileListAbsolute.txt b/obj/Debug/MillSuppoter.csproj.FileListAbsolute.txt[m
+[1mindex 9dd637b..00b09d7 100644[m
+[1m--- a/obj/Debug/MillSuppoter.csproj.FileListAbsolute.txt[m
+[1m+++ b/obj/Debug/MillSuppoter.csproj.FileListAbsolute.txt[m
+[36m@@ -10,3 +10,4 @@[m [mC:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.pdb[m
+ C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.ConnetCom.resources[m
+ C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.MainForm.resources[m
+ C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.Toilet.resources[m
+[32m+[m[32mC:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.LivingRoom.resources[m
+[1mdiff --git a/obj/Debug/MillSuppoter.csproj.GenerateResource.cache b/obj/Debug/MillSuppoter.csproj.GenerateResource.cache[m
+[1mindex dfe5e83..aa7f3aa 100644[m
+Binary files a/obj/Debug/MillSuppoter.csproj.GenerateResource.cache and b/obj/Debug/MillSuppoter.csproj.GenerateResource.cache differ
+[1mdiff --git a/obj/Debug/MillSuppoter.exe b/obj/Debug/MillSuppoter.exe[m
+[1mindex 9f73ca8..34e3c16 100644[m
+Binary files a/obj/Debug/MillSuppoter.exe and b/obj/Debug/MillSuppoter.exe differ
+[1mdiff --git a/obj/Debug/MillSuppoter.pdb b/obj/Debug/MillSuppoter.pdb[m
+[1mindex b2a6d3c..82ea723 100644[m
+Binary files a/obj/Debug/MillSuppoter.pdb and b/obj/Debug/MillSuppoter.pdb differ

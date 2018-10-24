@@ -23,10 +23,10 @@ namespace MillSuppoter
 
         private void Form1_Activated(object sender, EventArgs e)
         {
-            FrmToilet = new Toilet();
             this.Com = new SerialPort();
 
             this.Com.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Com_DataReceived);
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -57,6 +57,7 @@ namespace MillSuppoter
                 {
                     this.Text += " Connected : " + Com.PortName;
                     MessageBox.Show("연결!!");
+                    timer1.Start();
                 }
             }
             else if(FrmCntCom.CdnToCnt == -1){
@@ -119,10 +120,22 @@ namespace MillSuppoter
 
         private void panel1_Click(object sender, EventArgs e)
         {
-           
-
+            FrmToilet.Dispose();
+            FrmToilet = new Toilet();
             FrmToilet.Show();
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Com.WriteLine("10");
+            Com.WriteLine("20 " + FrmToilet.CntUsingRoom().ToString() + "5");
+            this.LBToilet.Text = FrmToilet.CntUsingRoom().ToString() + "/5";
         }
     }
 }
