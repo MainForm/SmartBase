@@ -87,9 +87,11 @@ namespace MillSuppoter
             }
         }
 
+        
 
         public int ConnectCom(string ComNum,int BaudRate)
         {
+            
             try
             {
                 Com.PortName = ComNum;
@@ -155,13 +157,11 @@ namespace MillSuppoter
             RM[roomNum].LbUnpleased.Text = roomUnpl.ToString();
             if (AirCondition == 1)
             {
-                RM[roomNum].PicBox.Load(@"on.png");
-                RM[roomHum].AirConStatus = true;
+                RM[roomNum].AirConStatus = true;
             }
             else
             {
-                RM[roomNum].PicBox.Load(@"off.png");
-                RM[roomHum].AirConStatus = false;
+                RM[roomNum].AirConStatus = false;
             }
          
         }
@@ -223,11 +223,12 @@ namespace MillSuppoter
             int Tltcnt = 0;
             int Aircnt = 0;
 
+              
             try
-           {
-                Com.Write("10");
-           }
-           catch { }
+            {
+                Com.Write("10\n");
+            }
+            catch { this.Text = "Err"; }
 
             for (int i = 0;i < 5;i++)
             {
@@ -250,8 +251,11 @@ namespace MillSuppoter
                    
                     if(dt[i].Second == 10)
                     {
-                        TRM[i].Danger = true;
                         MessageBox.Show("위험!!");
+                    }
+                    else if(dt[i].Second >= 10)
+                    {
+                        TRM[i].Danger = true;
                     }
 
                 }
@@ -274,12 +278,13 @@ namespace MillSuppoter
             this.LBToilet.Text = Tltcnt.ToString() + "/5";
             this.LBAir1.Text = Aircnt.ToString() + "/5";
 
-            System.Threading.Thread.Sleep(2);
+            //System.Threading.Thread.Sleep(1);
             try
             {
                 Com.Write("20 " + this.LBToilet.Text);
             }
             catch { }
+            //System.Threading.Thread.Sleep(1);
         }
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)
@@ -298,12 +303,6 @@ namespace MillSuppoter
             groupBox1.Invalidate();
         }
 
-
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Te");
-        }
 
         private void LBHum_Click(object sender, EventArgs e)
         {
@@ -331,15 +330,24 @@ namespace MillSuppoter
             }
             set
             {
-                if(value == true)
+                if (value == true)
                 {
                     IsAirconOn = true;
-                    PicBox.Load(@"off.png");
+                    try
+                    {
+                        PicBox.Load(@"on.png");
+                    }
+                    catch { }
                 }
                 else
                 {
                     IsAirconOn = false;
-                    PicBox.Load(@"on.png");
+                    try
+                    {
+                        PicBox.Load(@"off.png");
+
+                    }
+                    catch { }
                 }
             }
         }
