@@ -104,7 +104,7 @@ namespace MillSuppoter
             }
 
             Com.Open();
-            Com.BaseStream.WriteTimeout = 1;
+            //Com.BaseStream.WriteTimeout = 1;
             return 0;
         }
 
