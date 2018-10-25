@@ -205,10 +205,16 @@ namespace MillSuppoter
                 {
                     cnt++;
                     dt[i] = DateTime.Parse("00:00:00");
+                    GetControlFromName(groupBox1, "LBTlt" + (i + 1).ToString()).Text = "비어 있음";
                 }
                 else
                 {
                     dt[i] = dt[i].AddSeconds(1);
+                    if(TRM[i].IsPeopleIn == true)
+                        GetControlFromName(groupBox1, "LBTlt" + (i + 1).ToString()).Text = "사람 있음";
+                    else
+                        GetControlFromName(groupBox1, "LBTlt" + (i + 1).ToString()).Text = "비어 있음";
+                   
                     if(dt[i].Second == 10)
                     {
                         TRM[i].Danger = true;
@@ -350,8 +356,10 @@ namespace MillSuppoter
         public void DrawRoom(Graphics g, int x, int y)
         {
             Pen tPen;
-            
-            if (this.IsDoorOpen == false)
+
+            if (this.IsDoorOpen == false && this.IsPeopleIn == true)
+                tPen = pGreen;
+            else if (this.IsDoorOpen == false)
                 tPen = pRed;
             else
                 tPen = pBlue;
