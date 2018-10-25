@@ -28,6 +28,8 @@ namespace MillSuppoter
 
             this.Com.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Com_DataReceived);
 
+            CheckForIllegalCrossThreadCalls = false;
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -76,12 +78,14 @@ namespace MillSuppoter
                 Com.DataBits = 8;
                 Com.Parity = Parity.None;
                 Com.StopBits = StopBits.One;
+
             }
             catch{
                 return -1;
             }
 
             Com.Open();
+            Com.BaseStream.WriteTimeout = 1;
             return 0;
         }
 
@@ -111,30 +115,38 @@ namespace MillSuppoter
         private void Com_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
-            int Msg = sp.ReadChar();
-            
-            
-            //textBox1.Text  += (char)Msg;
+            int Msg = 0;
 
-            if (Msg == '\n')
+            do
             {
-                //명령어 실행
-
-                string[] result = Cmd.Split(new char[] { ' ' });
-
-                if (result[0] == "CMD") //명령어일 경우
+                try
                 {
-                    if (result[1] == "TLT") //화장실 관련
-                    {
-                        FrmToilet.ExcuteCommand(Cmd.Substring(Cmd.IndexOf("TLT") + 4));
-                    }
+                    Msg = sp.ReadChar();
                 }
-                Cmd = "";
-            }
-            else
-            {
-                Cmd = Cmd + (char)Msg;
-            }
+                catch { break; }
+
+                textBox1.Text += (char)Msg;
+
+                if (Msg == '\n')
+                {
+                    //명령어 실행
+
+                    string[] result = Cmd.Split(new char[] { ' ' });
+
+                    if (result[0] == "CMD") //명령어일 경우
+                    {
+                        if (result[1] == "TLT") //화장실 관련
+                        {
+                            FrmToilet.ExcuteCommand(Cmd.Substring(Cmd.IndexOf("TLT") + 4));
+                        }
+                    }
+                    Cmd = "";
+                }
+                else
+                {
+                    Cmd = Cmd + (char)Msg;
+                }
+            } while (Msg != 0);
          }
 
         private void panel1_Click(object sender, EventArgs e)
