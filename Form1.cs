@@ -227,11 +227,11 @@ namespace MillSuppoter
                 PictureBox ConPicture = (PictureBox)GetControlFromName(groupBox1, "pictureBox" + (i + 1).ToString());
 
                 if (TRM[i].Danger)
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\alert.png");
+                    ConPicture.Load(@"alert.png");
                 else if (TRM[i].IsWaterOverflow)
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\repair.png");
+                    ConPicture.Load(@"repair.png");
                 else
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\nomal.png");
+                    ConPicture.Load(@"nomal.png");
                 
                 GetControlFromName(this.groupBox1, "maskedTextBox" + (i + 1).ToString()).Text = dt[i].ToString("mm:ss");
             }
