@@ -17,6 +17,7 @@ namespace MillSuppoter
         // private Toilet FrmToilet;
         private TltRoom[] TRM;
         private DateTime[] dt;
+        private Remote[] RM;
 
         public MainForm()
         {
@@ -24,10 +25,18 @@ namespace MillSuppoter
             InitializeComponent();
             TRM = new TltRoom[5];
             dt = new DateTime[5];
+            RM = new Remote[5];
+
             for (int i = 0; i < 5; i++)
             {
+                RM[i] = new Remote();
                 TRM[i] = new TltRoom();
                 dt[i] = new DateTime();
+
+                RM[i].LbTmp = (Label)GetControlFromName(this.groupBox2,"LBTmp" + (i + 1).ToString());
+                RM[i].LbHum = (Label)GetControlFromName(this.groupBox2, "LBHum" + (i + 1).ToString());
+                RM[i].LbUnpleased = (Label)GetControlFromName(this.groupBox2, "LBUnpl" + (i + 1).ToString());
+                RM[i].PicBox = (PictureBox)GetControlFromName(this.groupBox2, "PcbxAir" + (i + 1).ToString());
             }
         }
 
@@ -131,16 +140,44 @@ namespace MillSuppoter
                 {
                     ExcuteTltCommand(Cmd.Substring(Cmd.IndexOf("TLT") + 4));
                 }
-                else if(result[1] == "LVG")
+                else if(result[1] == "REM")
                 {
-                    
+                    ExcuteRemCommand(Cmd.Substring(Cmd.IndexOf("REM") + 4));
                 }
             }
         }
 
-        public void ExcuteLVGCommand(string cmd)
+        public void ExcuteRemCommand(string cmd)
         {
-               
+            string[] Params = cmd.Split(new char[] { ' ' });
+
+            int roomNum = 0;
+            int.TryParse(Params[0], out roomNum);
+
+            int roomTmp = 0;
+            int.TryParse(Params[1], out roomTmp);
+
+            int roomHum = 0;
+            int.TryParse(Params[2], out roomHum);
+
+            int roomUnpl = 0;
+            int.TryParse(Params[3], out roomUnpl);
+
+            int AirCondition = 0;
+            int.TryParse(Params[4], out AirCondition);
+
+            RM[roomNum].LbTmp.Text = roomTmp.ToString();
+            RM[roomNum].LbHum.Text = roomHum.ToString();
+            RM[roomNum].LbUnpleased.Text = roomUnpl.ToString();
+            if (AirCondition == 1)
+            {
+                RM[roomNum].PicBox.Load(@"on.png");
+            }
+            else
+            {
+                RM[roomNum].PicBox.Load(@"off.png");
+            }
+         
         }
 
         public void ExcuteTltCommand(string cmd)
@@ -286,8 +323,21 @@ namespace MillSuppoter
         {
             MessageBox.Show("Te");
         }
+
+        private void LBHum_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
+    public class Remote
+    {
+        public Label LbTmp;
+        public Label LbHum;
+        public Label LbUnpleased;
+        public PictureBox PicBox;
+        
+    }
 
     public class TltRoom
     {

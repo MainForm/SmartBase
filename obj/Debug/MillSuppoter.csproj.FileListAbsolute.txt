@@ -9,5 +9,3 @@ C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.exe
 C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.pdb
 C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.ConnetCom.resources
 C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.MainForm.resources
-C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.Toilet.resources
-C:\Users\Administrator\source\repos\MillSuppoter\obj\Debug\MillSuppoter.LivingRoom.resources

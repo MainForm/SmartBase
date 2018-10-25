@@ -40,48 +40,17 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.LBUnpl5 = new System.Windows.Forms.Label();
-            this.LBUnpl4 = new System.Windows.Forms.Label();
-            this.LBUnpl3 = new System.Windows.Forms.Label();
-            this.LBUnpl2 = new System.Windows.Forms.Label();
-            this.LBTmp5 = new System.Windows.Forms.Label();
-            this.LBTmp4 = new System.Windows.Forms.Label();
-            this.LBTmp3 = new System.Windows.Forms.Label();
-            this.LBTmp2 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.LBHum5 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.LBHum4 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.LBHum3 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.LBHum2 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.PcbxAir5 = new System.Windows.Forms.PictureBox();
-            this.PcbxAir4 = new System.Windows.Forms.PictureBox();
-            this.PcbxAir3 = new System.Windows.Forms.PictureBox();
-            this.PcbxAir2 = new System.Windows.Forms.PictureBox();
-            this.PcbxAir1 = new System.Windows.Forms.PictureBox();
-            this.LBUnpl1 = new System.Windows.Forms.Label();
-            this.LBTmp1 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.LBHum1 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.LBHum = new System.Windows.Forms.Label();
             this.LBTemp = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -110,11 +79,11 @@
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -211,48 +180,17 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.LBUnpl5);
-            this.groupBox2.Controls.Add(this.LBUnpl4);
-            this.groupBox2.Controls.Add(this.LBUnpl3);
-            this.groupBox2.Controls.Add(this.LBUnpl2);
-            this.groupBox2.Controls.Add(this.LBTmp5);
-            this.groupBox2.Controls.Add(this.LBTmp4);
-            this.groupBox2.Controls.Add(this.LBTmp3);
-            this.groupBox2.Controls.Add(this.LBTmp2);
-            this.groupBox2.Controls.Add(this.label43);
-            this.groupBox2.Controls.Add(this.LBHum5);
-            this.groupBox2.Controls.Add(this.label36);
-            this.groupBox2.Controls.Add(this.LBHum4);
-            this.groupBox2.Controls.Add(this.label29);
-            this.groupBox2.Controls.Add(this.label41);
-            this.groupBox2.Controls.Add(this.LBHum3);
-            this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label40);
-            this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Controls.Add(this.label33);
-            this.groupBox2.Controls.Add(this.LBHum2);
-            this.groupBox2.Controls.Add(this.label39);
-            this.groupBox2.Controls.Add(this.label26);
-            this.groupBox2.Controls.Add(this.label32);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.PcbxAir5);
-            this.groupBox2.Controls.Add(this.PcbxAir4);
-            this.groupBox2.Controls.Add(this.PcbxAir3);
-            this.groupBox2.Controls.Add(this.PcbxAir2);
-            this.groupBox2.Controls.Add(this.PcbxAir1);
-            this.groupBox2.Controls.Add(this.LBUnpl1);
-            this.groupBox2.Controls.Add(this.LBTmp1);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.LBHum1);
+            this.groupBox2.Controls.Add(this.pictureBox10);
+            this.groupBox2.Controls.Add(this.pictureBox9);
+            this.groupBox2.Controls.Add(this.pictureBox8);
+            this.groupBox2.Controls.Add(this.pictureBox7);
+            this.groupBox2.Controls.Add(this.pictureBox6);
+            this.groupBox2.Controls.Add(this.LBHum);
             this.groupBox2.Controls.Add(this.LBTemp);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
@@ -261,287 +199,7 @@
             this.groupBox2.Size = new System.Drawing.Size(250, 720);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "생활관";
-            // 
-            // LBUnpl5
-            // 
-            this.LBUnpl5.AutoSize = true;
-            this.LBUnpl5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBUnpl5.Location = new System.Drawing.Point(96, 614);
-            this.LBUnpl5.Name = "LBUnpl5";
-            this.LBUnpl5.Size = new System.Drawing.Size(24, 16);
-            this.LBUnpl5.TabIndex = 19;
-            this.LBUnpl5.Text = "00";
-            // 
-            // LBUnpl4
-            // 
-            this.LBUnpl4.AutoSize = true;
-            this.LBUnpl4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBUnpl4.Location = new System.Drawing.Point(96, 473);
-            this.LBUnpl4.Name = "LBUnpl4";
-            this.LBUnpl4.Size = new System.Drawing.Size(24, 16);
-            this.LBUnpl4.TabIndex = 19;
-            this.LBUnpl4.Text = "00";
-            // 
-            // LBUnpl3
-            // 
-            this.LBUnpl3.AutoSize = true;
-            this.LBUnpl3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBUnpl3.Location = new System.Drawing.Point(96, 334);
-            this.LBUnpl3.Name = "LBUnpl3";
-            this.LBUnpl3.Size = new System.Drawing.Size(24, 16);
-            this.LBUnpl3.TabIndex = 19;
-            this.LBUnpl3.Text = "00";
-            // 
-            // LBUnpl2
-            // 
-            this.LBUnpl2.AutoSize = true;
-            this.LBUnpl2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBUnpl2.Location = new System.Drawing.Point(96, 194);
-            this.LBUnpl2.Name = "LBUnpl2";
-            this.LBUnpl2.Size = new System.Drawing.Size(24, 16);
-            this.LBUnpl2.TabIndex = 19;
-            this.LBUnpl2.Text = "00";
-            // 
-            // LBTmp5
-            // 
-            this.LBTmp5.AutoSize = true;
-            this.LBTmp5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBTmp5.Location = new System.Drawing.Point(52, 584);
-            this.LBTmp5.Name = "LBTmp5";
-            this.LBTmp5.Size = new System.Drawing.Size(24, 16);
-            this.LBTmp5.TabIndex = 21;
-            this.LBTmp5.Text = "00";
-            // 
-            // LBTmp4
-            // 
-            this.LBTmp4.AutoSize = true;
-            this.LBTmp4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBTmp4.Location = new System.Drawing.Point(52, 443);
-            this.LBTmp4.Name = "LBTmp4";
-            this.LBTmp4.Size = new System.Drawing.Size(24, 16);
-            this.LBTmp4.TabIndex = 21;
-            this.LBTmp4.Text = "00";
-            // 
-            // LBTmp3
-            // 
-            this.LBTmp3.AutoSize = true;
-            this.LBTmp3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBTmp3.Location = new System.Drawing.Point(52, 304);
-            this.LBTmp3.Name = "LBTmp3";
-            this.LBTmp3.Size = new System.Drawing.Size(24, 16);
-            this.LBTmp3.TabIndex = 21;
-            this.LBTmp3.Text = "00";
-            // 
-            // LBTmp2
-            // 
-            this.LBTmp2.AutoSize = true;
-            this.LBTmp2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBTmp2.Location = new System.Drawing.Point(52, 164);
-            this.LBTmp2.Name = "LBTmp2";
-            this.LBTmp2.Size = new System.Drawing.Size(24, 16);
-            this.LBTmp2.TabIndex = 21;
-            this.LBTmp2.Text = "00";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label43.Location = new System.Drawing.Point(6, 614);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(77, 16);
-            this.label43.TabIndex = 16;
-            this.label43.Text = "불쾌 지수";
-            // 
-            // LBHum5
-            // 
-            this.LBHum5.AutoSize = true;
-            this.LBHum5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBHum5.Location = new System.Drawing.Point(126, 584);
-            this.LBHum5.Name = "LBHum5";
-            this.LBHum5.Size = new System.Drawing.Size(24, 16);
-            this.LBHum5.TabIndex = 20;
-            this.LBHum5.Text = "00";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label36.Location = new System.Drawing.Point(6, 473);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(77, 16);
-            this.label36.TabIndex = 16;
-            this.label36.Text = "불쾌 지수";
-            // 
-            // LBHum4
-            // 
-            this.LBHum4.AutoSize = true;
-            this.LBHum4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBHum4.Location = new System.Drawing.Point(126, 443);
-            this.LBHum4.Name = "LBHum4";
-            this.LBHum4.Size = new System.Drawing.Size(24, 16);
-            this.LBHum4.TabIndex = 20;
-            this.LBHum4.Text = "00";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label29.Location = new System.Drawing.Point(6, 334);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(77, 16);
-            this.label29.TabIndex = 16;
-            this.label29.Text = "불쾌 지수";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label41.Location = new System.Drawing.Point(52, 584);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(24, 16);
-            this.label41.TabIndex = 22;
-            this.label41.Text = "00";
-            // 
-            // LBHum3
-            // 
-            this.LBHum3.AutoSize = true;
-            this.LBHum3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBHum3.Location = new System.Drawing.Point(126, 304);
-            this.LBHum3.Name = "LBHum3";
-            this.LBHum3.Size = new System.Drawing.Size(24, 16);
-            this.LBHum3.TabIndex = 20;
-            this.LBHum3.Text = "00";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label34.Location = new System.Drawing.Point(52, 443);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(24, 16);
-            this.label34.TabIndex = 22;
-            this.label34.Text = "00";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label18.Location = new System.Drawing.Point(6, 194);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 16);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "불쾌 지수";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label40.Location = new System.Drawing.Point(80, 584);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(40, 16);
-            this.label40.TabIndex = 17;
-            this.label40.Text = "습도";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label27.Location = new System.Drawing.Point(52, 304);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(24, 16);
-            this.label27.TabIndex = 22;
-            this.label27.Text = "00";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label33.Location = new System.Drawing.Point(80, 443);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(40, 16);
-            this.label33.TabIndex = 17;
-            this.label33.Text = "습도";
-            // 
-            // LBHum2
-            // 
-            this.LBHum2.AutoSize = true;
-            this.LBHum2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBHum2.Location = new System.Drawing.Point(126, 164);
-            this.LBHum2.Name = "LBHum2";
-            this.LBHum2.Size = new System.Drawing.Size(24, 16);
-            this.LBHum2.TabIndex = 20;
-            this.LBHum2.Text = "00";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label39.Location = new System.Drawing.Point(6, 584);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(40, 16);
-            this.label39.TabIndex = 18;
-            this.label39.Text = "온도";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label26.Location = new System.Drawing.Point(80, 304);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(40, 16);
-            this.label26.TabIndex = 17;
-            this.label26.Text = "습도";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label32.Location = new System.Drawing.Point(6, 443);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(40, 16);
-            this.label32.TabIndex = 18;
-            this.label32.Text = "온도";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label22.Location = new System.Drawing.Point(52, 164);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(24, 16);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "00";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label25.Location = new System.Drawing.Point(6, 304);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(40, 16);
-            this.label25.TabIndex = 18;
-            this.label25.Text = "온도";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label23.Location = new System.Drawing.Point(80, 164);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(40, 16);
-            this.label23.TabIndex = 17;
-            this.label23.Text = "습도";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label24.Location = new System.Drawing.Point(6, 164);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(40, 16);
-            this.label24.TabIndex = 18;
-            this.label24.Text = "온도";
+            this.groupBox2.Text = "groupBox2";
             // 
             // label13
             // 
@@ -593,103 +251,71 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "1생활관";
             // 
-            // PcbxAir5
+            // pictureBox10
             // 
-            this.PcbxAir5.Image = global::MillSuppoter.Properties.Resources.off;
-            this.PcbxAir5.Location = new System.Drawing.Point(141, 614);
-            this.PcbxAir5.Name = "PcbxAir5";
-            this.PcbxAir5.Size = new System.Drawing.Size(100, 100);
-            this.PcbxAir5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbxAir5.TabIndex = 10;
-            this.PcbxAir5.TabStop = false;
+            this.pictureBox10.Image = global::MillSuppoter.Properties.Resources.off;
+            this.pictureBox10.Location = new System.Drawing.Point(141, 614);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 10;
+            this.pictureBox10.TabStop = false;
             // 
-            // PcbxAir4
+            // pictureBox9
             // 
-            this.PcbxAir4.Image = global::MillSuppoter.Properties.Resources.off;
-            this.PcbxAir4.Location = new System.Drawing.Point(141, 473);
-            this.PcbxAir4.Name = "PcbxAir4";
-            this.PcbxAir4.Size = new System.Drawing.Size(100, 100);
-            this.PcbxAir4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbxAir4.TabIndex = 9;
-            this.PcbxAir4.TabStop = false;
+            this.pictureBox9.Image = global::MillSuppoter.Properties.Resources.off;
+            this.pictureBox9.Location = new System.Drawing.Point(141, 473);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 9;
+            this.pictureBox9.TabStop = false;
             // 
-            // PcbxAir3
+            // pictureBox8
             // 
-            this.PcbxAir3.Image = global::MillSuppoter.Properties.Resources.off;
-            this.PcbxAir3.Location = new System.Drawing.Point(144, 337);
-            this.PcbxAir3.Name = "PcbxAir3";
-            this.PcbxAir3.Size = new System.Drawing.Size(100, 100);
-            this.PcbxAir3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbxAir3.TabIndex = 8;
-            this.PcbxAir3.TabStop = false;
+            this.pictureBox8.Image = global::MillSuppoter.Properties.Resources.off;
+            this.pictureBox8.Location = new System.Drawing.Point(144, 337);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 8;
+            this.pictureBox8.TabStop = false;
             // 
-            // PcbxAir2
+            // pictureBox7
             // 
-            this.PcbxAir2.Image = global::MillSuppoter.Properties.Resources.off;
-            this.PcbxAir2.Location = new System.Drawing.Point(144, 193);
-            this.PcbxAir2.Name = "PcbxAir2";
-            this.PcbxAir2.Size = new System.Drawing.Size(100, 100);
-            this.PcbxAir2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbxAir2.TabIndex = 7;
-            this.PcbxAir2.TabStop = false;
+            this.pictureBox7.Image = global::MillSuppoter.Properties.Resources.off;
+            this.pictureBox7.Location = new System.Drawing.Point(144, 193);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 7;
+            this.pictureBox7.TabStop = false;
             // 
-            // PcbxAir1
+            // pictureBox6
             // 
-            this.PcbxAir1.Image = global::MillSuppoter.Properties.Resources.off;
-            this.PcbxAir1.Location = new System.Drawing.Point(144, 59);
-            this.PcbxAir1.Name = "PcbxAir1";
-            this.PcbxAir1.Size = new System.Drawing.Size(100, 100);
-            this.PcbxAir1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbxAir1.TabIndex = 6;
-            this.PcbxAir1.TabStop = false;
+            this.pictureBox6.Image = global::MillSuppoter.Properties.Resources.off;
+            this.pictureBox6.Location = new System.Drawing.Point(144, 59);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 6;
+            this.pictureBox6.TabStop = false;
             // 
-            // LBUnpl1
+            // LBHum
             // 
-            this.LBUnpl1.AutoSize = true;
-            this.LBUnpl1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBUnpl1.Location = new System.Drawing.Point(96, 50);
-            this.LBUnpl1.Name = "LBUnpl1";
-            this.LBUnpl1.Size = new System.Drawing.Size(24, 16);
-            this.LBUnpl1.TabIndex = 4;
-            this.LBUnpl1.Text = "00";
-            this.LBUnpl1.Click += new System.EventHandler(this.LBHum_Click);
-            // 
-            // LBTmp1
-            // 
-            this.LBTmp1.AutoSize = true;
-            this.LBTmp1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBTmp1.Location = new System.Drawing.Point(52, 20);
-            this.LBTmp1.Name = "LBTmp1";
-            this.LBTmp1.Size = new System.Drawing.Size(24, 16);
-            this.LBTmp1.TabIndex = 5;
-            this.LBTmp1.Text = "00";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.Location = new System.Drawing.Point(6, 50);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(77, 16);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "불쾌 지수";
-            // 
-            // LBHum1
-            // 
-            this.LBHum1.AutoSize = true;
-            this.LBHum1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBHum1.Location = new System.Drawing.Point(126, 20);
-            this.LBHum1.Name = "LBHum1";
-            this.LBHum1.Size = new System.Drawing.Size(24, 16);
-            this.LBHum1.TabIndex = 4;
-            this.LBHum1.Text = "00";
-            this.LBHum1.Click += new System.EventHandler(this.LBHum_Click);
+            this.LBHum.AutoSize = true;
+            this.LBHum.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBHum.Location = new System.Drawing.Point(208, 20);
+            this.LBHum.Name = "LBHum";
+            this.LBHum.Size = new System.Drawing.Size(24, 16);
+            this.LBHum.TabIndex = 4;
+            this.LBHum.Text = "00";
             // 
             // LBTemp
             // 
             this.LBTemp.AutoSize = true;
             this.LBTemp.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBTemp.Location = new System.Drawing.Point(52, 20);
+            this.LBTemp.Location = new System.Drawing.Point(67, 20);
             this.LBTemp.Name = "LBTemp";
             this.LBTemp.Size = new System.Drawing.Size(24, 16);
             this.LBTemp.TabIndex = 5;
@@ -699,7 +325,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(80, 20);
+            this.label7.Location = new System.Drawing.Point(147, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 16);
             this.label7.TabIndex = 2;
@@ -864,7 +490,7 @@
             // maskedTextBox4
             // 
             this.maskedTextBox4.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.maskedTextBox4.Location = new System.Drawing.Point(100, 513);
+            this.maskedTextBox4.Location = new System.Drawing.Point(100, 515);
             this.maskedTextBox4.Mask = "90:00";
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.ReadOnly = true;
@@ -876,7 +502,7 @@
             // maskedTextBox5
             // 
             this.maskedTextBox5.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.maskedTextBox5.Location = new System.Drawing.Point(100, 647);
+            this.maskedTextBox5.Location = new System.Drawing.Point(100, 646);
             this.maskedTextBox5.Mask = "90:00";
             this.maskedTextBox5.Name = "maskedTextBox5";
             this.maskedTextBox5.ReadOnly = true;
@@ -913,7 +539,7 @@
             this.groupBox1.Size = new System.Drawing.Size(250, 720);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "화장실";
+            this.groupBox1.Text = "groupBox1";
             this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // LBTlt5
@@ -991,11 +617,11 @@
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbxAir1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1026,12 +652,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox PcbxAir5;
-        private System.Windows.Forms.PictureBox PcbxAir4;
-        private System.Windows.Forms.PictureBox PcbxAir3;
-        private System.Windows.Forms.PictureBox PcbxAir2;
-        private System.Windows.Forms.PictureBox PcbxAir1;
-        private System.Windows.Forms.Label LBHum1;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label LBHum;
         private System.Windows.Forms.Label LBTemp;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -1057,37 +683,6 @@
         private System.Windows.Forms.Label LBTlt3;
         private System.Windows.Forms.Label LBTlt2;
         private System.Windows.Forms.Label LBTlt1;
-        private System.Windows.Forms.Label LBUnpl1;
-        private System.Windows.Forms.Label LBTmp1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label LBUnpl5;
-        private System.Windows.Forms.Label LBUnpl4;
-        private System.Windows.Forms.Label LBUnpl3;
-        private System.Windows.Forms.Label LBUnpl2;
-        private System.Windows.Forms.Label LBTmp5;
-        private System.Windows.Forms.Label LBTmp4;
-        private System.Windows.Forms.Label LBTmp3;
-        private System.Windows.Forms.Label LBTmp2;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label LBHum5;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label LBHum4;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label LBHum3;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label LBHum2;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
     }
 }
 

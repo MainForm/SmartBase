@@ -59,28 +59,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LivingRoom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LivingRoom.Designer.cs">
-      <DependentUpon>LivingRoom.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Toilet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Toilet.Designer.cs">
-      <DependentUpon>Toilet.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ConnetCom.resx">
       <DependentUpon>ConnetCom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LivingRoom.resx">
-      <DependentUpon>LivingRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,9 +77,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Toilet.resx">
-      <DependentUpon>Toilet.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
