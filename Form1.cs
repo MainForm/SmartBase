@@ -113,22 +113,6 @@ namespace MillSuppoter
             Com.Close();
         }
 
-    
-        private delegate void DelegateFunction(char sData);
-
-        private void DelegateFunc(char sData)
-        {
-            if (textBox1.InvokeRequired)
-            {
-                DelegateFunction call = new DelegateFunction(DelegateFunc);
-                this.Invoke(call, sData);
-            }
-            else
-            {
-                textBox1.Text += (char)sData;
-            }
-        }
-
 
         private void DecodeCommand(string C)
         {
@@ -171,11 +155,11 @@ namespace MillSuppoter
             RM[roomNum].LbUnpleased.Text = roomUnpl.ToString();
             if (AirCondition == 1)
             {
-                RM[roomNum].PicBox.Load(@"on.png");
+                RM[roomNum].AirConStatus = true;
             }
             else
             {
-                RM[roomNum].PicBox.Load(@"off.png");
+                RM[roomNum].AirConStatus = false;
             }
          
         }
@@ -204,8 +188,7 @@ namespace MillSuppoter
             SerialPort sp = (SerialPort)sender;
 
             string msg = sp.ReadExisting();
-            
-            textBox1.Text += msg;
+           
             
             foreach(char c in msg)
             {
@@ -235,7 +218,8 @@ namespace MillSuppoter
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int cnt = 0;
+            int Tltcnt = 0;
+            int Aircnt = 0;
             try
             {
                 Com.Write("10");
@@ -245,9 +229,12 @@ namespace MillSuppoter
 
             for (int i = 0;i < 5;i++)
             {
+                if (RM[i].AirConStatus)
+                    Aircnt++;
+
                 if (TRM[i].IsDoorOpen)
                 {
-                    cnt++;
+                    Tltcnt++;
                     dt[i] = DateTime.Parse("00:00:00");
                     GetControlFromName(groupBox1, "LBTlt" + (i + 1).ToString()).Text = "비어 있음";
                 }
@@ -281,27 +268,9 @@ namespace MillSuppoter
             }
 
 
-            this.LBToilet.Text = cnt.ToString() + "/5";
-        }
 
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try {
-                Com.Write(this.textBox2.Text);
-                textBox2.Text = "";
-            }
-            catch
-            {
-
-            }
-
+            this.LBToilet.Text = Tltcnt.ToString() + "/5";
+            this.LBAir1.Text = Aircnt.ToString() + "/5";
         }
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)
@@ -316,10 +285,6 @@ namespace MillSuppoter
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                TRM[i].DrawRoom(e.Graphics, 427 + 100, 20 + 27 + (i * (TRM[i].Height + 30)));
-            }
 
             groupBox1.Invalidate();
         }
@@ -343,6 +308,34 @@ namespace MillSuppoter
         public Label LbHum;
         public Label LbUnpleased;
         public PictureBox PicBox;
+
+        private bool IsAirconOn;
+
+        public bool AirConStatus{
+            get{
+                return IsAirconOn; 
+            }
+            set
+            {
+                if(value == true)
+                {
+                    IsAirconOn = true;
+                    PicBox.Load(@"off.png");
+                }
+                else
+                {
+                    IsAirconOn = false;
+                    PicBox.Load(@"on.png");
+                }
+            }
+        }
+
+        public Remote()
+        {
+            LbHum = null;
+            LbTmp = null;
+            LbUnpleased = null;
+        }
     }
 
     public class TltRoom
