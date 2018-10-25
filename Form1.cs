@@ -223,7 +223,6 @@ namespace MillSuppoter
  //           try
  //           {
                 Com.Write("10");
-                Com.Write("20 " + this.LBToilet.Text);
  //           }
  //           catch { }
 
@@ -271,6 +270,8 @@ namespace MillSuppoter
 
             this.LBToilet.Text = Tltcnt.ToString() + "/5";
             this.LBAir1.Text = Aircnt.ToString() + "/5";
+
+            Com.Write("20 " + this.LBToilet.Text);
         }
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)
