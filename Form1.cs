@@ -155,11 +155,13 @@ namespace MillSuppoter
             RM[roomNum].LbUnpleased.Text = roomUnpl.ToString();
             if (AirCondition == 1)
             {
-                RM[roomNum].AirConStatus = true;
+                RM[roomNum].PicBox.Load(@"on.png");
+                RM[roomHum].AirConStatus = true;
             }
             else
             {
-                RM[roomNum].AirConStatus = false;
+                RM[roomNum].PicBox.Load(@"off.png");
+                RM[roomHum].AirConStatus = false;
             }
          
         }
@@ -272,6 +274,7 @@ namespace MillSuppoter
             this.LBToilet.Text = Tltcnt.ToString() + "/5";
             this.LBAir1.Text = Aircnt.ToString() + "/5";
 
+            System.Threading.Thread.Sleep(2);
             try
             {
                 Com.Write("20 " + this.LBToilet.Text);
@@ -303,6 +306,11 @@ namespace MillSuppoter
         }
 
         private void LBHum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
