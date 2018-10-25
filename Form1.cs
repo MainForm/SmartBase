@@ -220,12 +220,12 @@ namespace MillSuppoter
         {
             int Tltcnt = 0;
             int Aircnt = 0;
-            try
-            {
+ //           try
+ //           {
                 Com.Write("10");
                 Com.Write("20 " + this.LBToilet.Text);
-            }
-            catch { }
+ //           }
+ //           catch { }
 
             for (int i = 0;i < 5;i++)
             {
