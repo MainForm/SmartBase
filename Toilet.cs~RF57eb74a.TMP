@@ -16,7 +16,7 @@ namespace MillSuppoter
     {
         private TltRoom[] TRm;
         private DateTime[] dt;
- 
+
         public Toilet()
         {
             TRm = new TltRoom[5]; 
@@ -35,12 +35,6 @@ namespace MillSuppoter
         {
             //CheckForIllegalCrossThreadCalls = false;
 
-            dt[0] = dt[0].AddSeconds(1);
-            maskedTextBox1.Text = dt[0].ToString("mm:ss");
-        }
-
-        private void Tm_Tick(object sender, EventArgs e)
-        {
             dt[0] = dt[0].AddSeconds(1);
             maskedTextBox1.Text = dt[0].ToString("mm:ss");
         }
@@ -71,7 +65,6 @@ namespace MillSuppoter
                 int RoomNum = 0;
                 int.TryParse(Params[1], out RoomNum);
                 TRm[RoomNum].IsDoorOpen = true;
-                TRm[RoomNum].Timer_On();
 //                maskedTextBox1.Text = "00:00";
             }
             else if (Params[0] == "CLOSE")
@@ -81,6 +74,7 @@ namespace MillSuppoter
                 maskedTextBox1.Text = "";
                 TRm[RoomNum].IsDoorOpen = false;
             }
+            
 
             Invalidate();
         }
@@ -106,7 +100,7 @@ namespace MillSuppoter
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            TRm[1].Timer_On();
+
         }
 
     }
@@ -120,7 +114,6 @@ namespace MillSuppoter
         public int Height { get { return 100; } }
         public int Width { get { return 100; } }
         Toilet t;
-        Timer Tm;
 
         public bool IsDoorOpen { get { return DoorStatus; } set { DoorStatus = value; } }
         public bool IsWaterOverflow { get { return WaterStatus; } set { WaterStatus = value; } }
@@ -136,25 +129,6 @@ namespace MillSuppoter
 
             dt = new DateTime();
             dt = DateTime.Parse("00:10:10");
-            Tm = new Timer();
-            Tm.Interval = 1000;
-            Tm.Enabled = false;
-            Tm.Tick += Tm_Tick;
-        }
-
-        private void Tm_Tick(object sender, EventArgs e)
-        {
-            MessageBox.Show("sdf");
-        }
-
-        public void Timer_On()
-        {
-            Tm.Start();
-        }
-
-        public void Timer_Off()
-        {
-            Tm.Stop();
         }
 
         public void DrawRoom(Graphics g, int x, int y)

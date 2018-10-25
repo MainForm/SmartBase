@@ -26,7 +26,7 @@ namespace MillSuppoter
         {
             this.Com = new SerialPort();
 
-            this.Com.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Com_DataReceived);
+//            this.Com.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Com_DataReceived);
 
             CheckForIllegalCrossThreadCalls = false;
 
@@ -95,7 +95,9 @@ namespace MillSuppoter
             Com.Close();
         }
 
-    
+        private string Cmd;
+
+        
         private delegate void DelegateFunction(char sData);
 
         private void DelegateFunc(char sData)
@@ -112,46 +114,15 @@ namespace MillSuppoter
         }
 
 
-        private void DecodeCommand(string C)
-        {
-            string[] result = C.Split(new char[] { ' ' });
 
-            if (result[0] == "CMD") //명령어일 경우
-            {
-                if (result[1] == "TLT") //화장실 관련
-                {
-                    FrmToilet.ExcuteCommand(Cmd.Substring(Cmd.IndexOf("TLT") + 4));
-
-                }
-            }
-        }
-
-
-        private string Cmd;
-
+        
         private void Com_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
 
-            string msg = sp.ReadExisting();
-            
-            textBox1.Text += msg;
-            string[] result;
-            
-            foreach(char c in msg)
-            {
-                if(c == '\n')
-                {
-                    DecodeCommand(Cmd);
-                    Cmd = "";
-                }
-                else
-                {
-                    Cmd += c;
-                }
-            }
+            string str = sp.ReadExisting();
 
-
+            textBox1.Text += str;
             /*
             int Msg = 0;
 
@@ -188,7 +159,7 @@ namespace MillSuppoter
             } while (Msg != 0);
             */
 
-        }
+         }
 
         private void panel1_Click(object sender, EventArgs e)
         {
