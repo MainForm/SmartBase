@@ -154,8 +154,10 @@ namespace MillSuppoter
             int.TryParse(Params[1], out roomStatus);
 
 
-
-            TRM[roomNum].Status = roomStatus;
+            if ((0x04 & 0x04) == 0x01)
+                TRM[roomNum].IsWaterOverflow = true;
+            else
+                TRM[roomNum].Status = roomStatus;
 
             Invalidate();
         }
@@ -290,7 +292,7 @@ namespace MillSuppoter
         public bool Danger;
         public bool Clashed;
         public bool IsPeopleIn;
-        private Pen pBlue, pRed, pGreen;
+        private Pen pBlue, pRed;
         public int Height { get { return 100; } }
         public int Width { get { return 100; } }
 
@@ -315,22 +317,18 @@ namespace MillSuppoter
             }
             set
             {
-                if((value & 0x01) == 0x01)
+                if((value & 0x01) == 1)
                     IsDoorOpen = false;
                 else
                     IsDoorOpen = true;
 
-                if ((value & 0x02) == 0x02)
-                    IsPeopleIn = true;
-                else
+                if ((value & 0x02) == 1)
                     IsPeopleIn = false;
-
-                if ((value & 0x04) == 0x04)
-                    IsWaterOverflow = true;
                 else
-                    IsWaterOverflow = false;
+                    IsPeopleIn = true;
 
-                if ((value & 0x10) == 0x10)
+                
+                if((value & 0x10) == 1)
                     Danger = true;
                 else
                     Danger = false;
@@ -344,13 +342,14 @@ namespace MillSuppoter
             Danger = false;
             pBlue = new Pen(Color.Blue);
             pRed = new Pen(Color.Red);
-            pGreen = new Pen(Color.Green);
         }
+
+     
 
         public void DrawRoom(Graphics g, int x, int y)
         {
             Pen tPen;
-            
+
             if (this.IsDoorOpen == false)
                 tPen = pRed;
             else

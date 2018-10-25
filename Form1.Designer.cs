@@ -71,8 +71,11 @@
             this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.LBTlt1 = new System.Windows.Forms.Label();
+            this.LBTlt2 = new System.Windows.Forms.Label();
+            this.LBTlt3 = new System.Windows.Forms.Label();
+            this.LBTlt4 = new System.Windows.Forms.Label();
+            this.LBTlt5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -123,7 +126,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(228, 109);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -157,7 +159,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(370, 362);
             this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -409,7 +410,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -454,7 +454,7 @@
             // maskedTextBox1
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(100, 118);
+            this.maskedTextBox1.Location = new System.Drawing.Point(100, 121);
             this.maskedTextBox1.Mask = "90:00";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.ReadOnly = true;
@@ -466,7 +466,7 @@
             // maskedTextBox2
             // 
             this.maskedTextBox2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(100, 248);
+            this.maskedTextBox2.Location = new System.Drawing.Point(100, 252);
             this.maskedTextBox2.Mask = "90:00";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.ReadOnly = true;
@@ -513,6 +513,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LBTlt5);
+            this.groupBox1.Controls.Add(this.LBTlt4);
+            this.groupBox1.Controls.Add(this.LBTlt3);
+            this.groupBox1.Controls.Add(this.LBTlt2);
+            this.groupBox1.Controls.Add(this.LBTlt1);
             this.groupBox1.Controls.Add(this.maskedTextBox5);
             this.groupBox1.Controls.Add(this.maskedTextBox4);
             this.groupBox1.Controls.Add(this.maskedTextBox3);
@@ -536,12 +541,56 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // timer2
+            // LBTlt1
             // 
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.LBTlt1.AutoSize = true;
+            this.LBTlt1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBTlt1.Location = new System.Drawing.Point(6, 78);
+            this.LBTlt1.Name = "LBTlt1";
+            this.LBTlt1.Size = new System.Drawing.Size(91, 19);
+            this.LBTlt1.TabIndex = 18;
+            this.LBTlt1.Text = "비어 있음";
+            // 
+            // LBTlt2
+            // 
+            this.LBTlt2.AutoSize = true;
+            this.LBTlt2.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBTlt2.Location = new System.Drawing.Point(3, 207);
+            this.LBTlt2.Name = "LBTlt2";
+            this.LBTlt2.Size = new System.Drawing.Size(91, 19);
+            this.LBTlt2.TabIndex = 18;
+            this.LBTlt2.Text = "비어 있음";
+            // 
+            // LBTlt3
+            // 
+            this.LBTlt3.AutoSize = true;
+            this.LBTlt3.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBTlt3.Location = new System.Drawing.Point(6, 337);
+            this.LBTlt3.Name = "LBTlt3";
+            this.LBTlt3.Size = new System.Drawing.Size(91, 19);
+            this.LBTlt3.TabIndex = 18;
+            this.LBTlt3.Text = "비어 있음";
+            // 
+            // LBTlt4
+            // 
+            this.LBTlt4.AutoSize = true;
+            this.LBTlt4.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBTlt4.Location = new System.Drawing.Point(6, 473);
+            this.LBTlt4.Name = "LBTlt4";
+            this.LBTlt4.Size = new System.Drawing.Size(91, 19);
+            this.LBTlt4.TabIndex = 18;
+            this.LBTlt4.Text = "비어 있음";
+            // 
+            // LBTlt5
+            // 
+            this.LBTlt5.AutoSize = true;
+            this.LBTlt5.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBTlt5.Location = new System.Drawing.Point(3, 597);
+            this.LBTlt5.Name = "LBTlt5";
+            this.LBTlt5.Size = new System.Drawing.Size(91, 19);
+            this.LBTlt5.TabIndex = 18;
+            this.LBTlt5.Text = "비어 있음";
             // 
             // MainForm
             // 
@@ -629,8 +678,11 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private System.Windows.Forms.MaskedTextBox maskedTextBox5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Label LBTlt5;
+        private System.Windows.Forms.Label LBTlt4;
+        private System.Windows.Forms.Label LBTlt3;
+        private System.Windows.Forms.Label LBTlt2;
+        private System.Windows.Forms.Label LBTlt1;
     }
 }
 
