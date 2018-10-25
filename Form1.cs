@@ -59,6 +59,7 @@ namespace MillSuppoter
                     this.Text += " Connected : " + Com.PortName;
                     MessageBox.Show("연결!!");
                     timer1.Start();
+                    
                 }
             }
             else if(FrmCntCom.CdnToCnt == -1){
@@ -175,8 +176,15 @@ namespace MillSuppoter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Com.Write(this.textBox2.Text);
-            textBox2.Text = "";
+            try {
+                Com.Write(this.textBox2.Text);
+                textBox2.Text = "";
+            }
+            catch
+            {
+
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
