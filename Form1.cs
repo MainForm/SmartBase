@@ -104,7 +104,7 @@ namespace MillSuppoter
             }
 
             Com.Open();
-            //Com.BaseStream.WriteTimeout = 1;
+            Com.BaseStream.WriteTimeout = 1;
             return 0;
         }
 
@@ -220,11 +220,12 @@ namespace MillSuppoter
         {
             int Tltcnt = 0;
             int Aircnt = 0;
- //           try
- //           {
+
+            try
+           {
                 Com.Write("10");
- //           }
- //           catch { }
+           }
+           catch { }
 
             for (int i = 0;i < 5;i++)
             {
@@ -271,7 +272,11 @@ namespace MillSuppoter
             this.LBToilet.Text = Tltcnt.ToString() + "/5";
             this.LBAir1.Text = Aircnt.ToString() + "/5";
 
-            Com.Write("20 " + this.LBToilet.Text);
+            try
+            {
+                Com.Write("20 " + this.LBToilet.Text);
+            }
+            catch { }
         }
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)
