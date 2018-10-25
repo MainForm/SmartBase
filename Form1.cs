@@ -236,7 +236,14 @@ namespace MillSuppoter
         private void timer1_Tick(object sender, EventArgs e)
         {
             int cnt = 0;
-            for(int i = 0;i < 5;i++)
+            try
+            {
+                Com.Write("10");
+                Com.Write("20 " + this.LBToilet.Text);
+            }
+            catch { }
+
+            for (int i = 0;i < 5;i++)
             {
                 if (TRM[i].IsDoorOpen)
                 {
@@ -336,7 +343,6 @@ namespace MillSuppoter
         public Label LbHum;
         public Label LbUnpleased;
         public PictureBox PicBox;
-        
     }
 
     public class TltRoom
