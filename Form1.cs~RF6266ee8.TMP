@@ -16,18 +16,16 @@ namespace MillSuppoter
         private SerialPort Com;
         // private Toilet FrmToilet;
         private TltRoom[] TRM;
-        private DateTime[] dt;
 
         public MainForm()
         {
          //   FrmToilet = new Toilet();
             InitializeComponent();
             TRM = new TltRoom[5];
-            dt = new DateTime[5];
-            for (int i = 0; i < 5; i++)
+
+            for(int i = 0; i < 5; i++)
             {
                 TRM[i] = new TltRoom();
-                dt[i] = new DateTime();
             }
         }
 
@@ -138,13 +136,21 @@ namespace MillSuppoter
         {
             string[] Params = cmd.Split(new char[] { ' ' });
 
-            int roomNum = 0;
-            int.TryParse(Params[0], out roomNum);
 
-            int roomStatus = 0;
-            int.TryParse(Params[1], out roomStatus);
-
-            TRM[roomNum].Status = roomStatus;
+            if (Params[0] == "OPEN")
+            {
+                int RoomNum = 0;
+                int.TryParse(Params[1], out RoomNum);
+                TRM[RoomNum].IsDoorOpen = true;
+                
+            }
+            else if (Params[0] == "CLOSE")
+            {
+                int RoomNum = 0;
+                int.TryParse(Params[1], out RoomNum);
+                maskedTextBox1.Text = "00:00";
+                TRM[RoomNum].IsDoorOpen = false;
+            }
 
             Invalidate();
         }
@@ -175,63 +181,32 @@ namespace MillSuppoter
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("Tet");
+
+            this.panel1.Invalidate();
+            /*
+            FrmToilet.Dispose();
+            FrmToilet = new Toilet();
+            FrmToilet.Show();
+            */
         }
 
-        private Control GetControlFromName(Control frm,string name)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            for (int i = 0; i < frm.Controls.Count; i++)
-            {
-                if (frm.Controls[i].Name == name)
-                    return frm.Controls[i];
-            }
 
-            return null;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             int cnt = 0;
-            for(int i = 0;i < 5;i++)
-            {
-                if (TRM[i].IsDoorOpen)
-                {
+            foreach (TltRoom t in TRM)
+                if (t.IsDoorOpen)
                     cnt++;
-                    dt[i] = DateTime.Parse("00:00:00");
-                }
-                else
-                {
-                    dt[i] = dt[i].AddSeconds(1);
-                    if(dt[i].Second == 10)
-                    {
-                        TRM[i].Danger = true;
-                        MessageBox.Show("위험!!");
-                    }
-
-                }
-
-                PictureBox ConPicture = (PictureBox)GetControlFromName(groupBox1, "pictureBox" + (i + 1).ToString());
-
-                if (TRM[i].Danger)
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\alert.png");
-                else if (TRM[i].Clashed)
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\repair.png");
-                else
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\nomal.png");
-
-
-
-                GetControlFromName(this.groupBox1, "maskedTextBox" + (i + 1).ToString()).Text = dt[i].ToString("mm:ss");
-
-            }
-
 
             this.LBToilet.Text = cnt.ToString() + "/5";
         }
-
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -258,11 +233,11 @@ namespace MillSuppoter
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)
         {
-           
+            base.OnPaint(e);
+
             for (int i = 0; i < 5; i++)
             {
-         
-                TRM[i].DrawRoom(e.Graphics, 100, 20 + (i * (TRM[i].Height + 30)));
+                //TRM[i].DrawRoom(e.Graphics, 100, 20 + (i * (TRM[i].Height + 30)));
             }
         }
 
@@ -272,23 +247,7 @@ namespace MillSuppoter
             {
                 TRM[i].DrawRoom(e.Graphics, 427 + 100, 20 + 27 + (i * (TRM[i].Height + 30)));
             }
-
-            groupBox1.Invalidate();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Te");
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            this.panel1.Invalidate();
         }
     }
 
@@ -297,62 +256,44 @@ namespace MillSuppoter
     {
         private bool DoorStatus;
         private bool WaterStatus;
-        public bool Danger;
-        public bool Clashed;
         private Pen pBlue, pRed;
         public int Height { get { return 100; } }
         public int Width { get { return 100; } }
 
+        private Timer Tm;
+        
         public bool IsDoorOpen { get { return DoorStatus; } set { DoorStatus = value; } }
         public bool IsWaterOverflow { get { return WaterStatus; } set { WaterStatus = value; } }
-
-        public int Status
-        {
-            get
-            {
-                int st  = 0;
-                if (IsDoorOpen)
-                    st |= 0x01;
-                else if (IsWaterOverflow)
-                    st |= 0x02;
-                else if (Danger)
-                    st |= 0x10;
-                else if (Clashed)
-                    st |= 0x11;
-                return st;
-            }
-            set
-            {
-                if((value & 0x01) == 1)
-                {
-                    IsDoorOpen = false;
-                }
-                else
-                {
-                    IsDoorOpen = true;
-                }
-                
-                if((value & 0x10) == 1)
-                {
-                    Danger = true;
-                }
-                else
-                {
-                    Danger = false;
-                }
-            }
-        }
 
         public TltRoom()
         {
             IsDoorOpen = true;
             IsWaterOverflow = false;
-            Danger = false;
+
             pBlue = new Pen(Color.Blue);
             pRed = new Pen(Color.Red);
+
+
+            Tm = new Timer();
+            Tm.Interval = 1000;
+            Tm.Enabled = false;
+            Tm.Tick += Tm_Tick;
         }
 
-     
+        private void Tm_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tet");
+        }
+
+        public void Timer_On()
+        {
+            Tm.Start();
+        }
+
+        public void Timer_Off()
+        {
+            Tm.Stop();
+        }
 
         public void DrawRoom(Graphics g, int x, int y)
         {

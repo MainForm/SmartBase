@@ -177,18 +177,7 @@ namespace MillSuppoter
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            
-        }
 
-        private Control GetControlFromName(Control frm,string name)
-        {
-            for (int i = 0; i < frm.Controls.Count; i++)
-            {
-                if (frm.Controls[i].Name == name)
-                    return frm.Controls[i];
-            }
-
-            return null;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -204,27 +193,26 @@ namespace MillSuppoter
                 else
                 {
                     dt[i] = dt[i].AddSeconds(1);
-                    if(dt[i].Second == 10)
+                    if(dt[i].Second >= 10)
                     {
-                        TRM[i].Danger = true;
-                        MessageBox.Show("위험!!");
+                        TRM[i].Status = (0x07); //Danger
+                     
+                    }
+                    if(TRM[i].Danger == true)
+                    {
+                        MessageBox.Show("위험");
+                        TRM[i].Danger == false;
                     }
 
                 }
 
-                PictureBox ConPicture = (PictureBox)GetControlFromName(groupBox1, "pictureBox" + (i + 1).ToString());
-
-                if (TRM[i].Danger)
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\alert.png");
-                else if (TRM[i].Clashed)
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\repair.png");
-                else
-                    ConPicture.Load(@"C:\Users\Administrator\source\repos\MillSuppoter\Resources\nomal.png");
-
-
-
-                GetControlFromName(this.groupBox1, "maskedTextBox" + (i + 1).ToString()).Text = dt[i].ToString("mm:ss");
-
+                for (int i1 = 0; i1 < this.groupBox1.Controls.Count; i1++)
+                {
+                    if (this.groupBox1.Controls[i1].Name == ("maskedTextBox" + (i + 1).ToString()))
+                    {
+                        groupBox1.Controls[i1].Text = dt[i].ToString("mm:ss");
+                    }
+                }
             }
 
 
@@ -285,11 +273,6 @@ namespace MillSuppoter
         {
             MessageBox.Show("Te");
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 
@@ -298,7 +281,6 @@ namespace MillSuppoter
         private bool DoorStatus;
         private bool WaterStatus;
         public bool Danger;
-        public bool Clashed;
         private Pen pBlue, pRed;
         public int Height { get { return 100; } }
         public int Width { get { return 100; } }
@@ -308,19 +290,6 @@ namespace MillSuppoter
 
         public int Status
         {
-            get
-            {
-                int st  = 0;
-                if (IsDoorOpen)
-                    st |= 0x01;
-                else if (IsWaterOverflow)
-                    st |= 0x02;
-                else if (Danger)
-                    st |= 0x10;
-                else if (Clashed)
-                    st |= 0x11;
-                return st;
-            }
             set
             {
                 if((value & 0x01) == 1)
@@ -332,7 +301,7 @@ namespace MillSuppoter
                     IsDoorOpen = true;
                 }
                 
-                if((value & 0x10) == 1)
+                if((value & 0x08) == 1)
                 {
                     Danger = true;
                 }
